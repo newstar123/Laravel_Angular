@@ -1,0 +1,20 @@
+<form class="form-signin" ng-submit="doLoginFn()">
+    <h2 class="form-signin-heading">
+        
+        SIGN IN NOW
+    </h2>
+    <div class="login-wrap">
+        <div class="user-login-info">
+            <input type="text" class="form-control" placeholder="User ID" autofocus ng-model="login.email">
+            <input type="password" class="form-control" placeholder="Password" ng-model="login.password">
+        </div>
+        <label class="checkbox">
+            &nbsp;
+            <span class="pull-right">
+                <a ui-sref="forgotpwd"> Forgot Password?</a>
+            </span>
+        </label>
+        <button class="btn btn-lg btn-login btn-block" type="submit">SIGN IN</button>
+    </div>
+
+</form>

@@ -1,0 +1,14 @@
+<form name="resetPwd" class="form-signin" ng-submit="resetPwdFn()">
+    <h2 class="form-signin-heading">
+        Reset Password
+    </h2>
+    <div class="login-wrap">
+        <div class="user-login-info">
+            <input type="password" class="form-control" placeholder="Enter New Password" autofocus ng-model="reset.password" required>
+            <input type="password" class="form-control" placeholder="Enter Password Again" autofocus ng-model="cpwd" required>
+            <span class="error" style="color: red" ng-show="cpwd && cpwd != reset.password"> Contraseña No Coincide</span>
+        </div>
+        <button ng-disabled="resetPwd.$invalid" class="btn btn-lg btn-login btn-block" type="submit">Submit</button>
+    </div>
+
+</form>

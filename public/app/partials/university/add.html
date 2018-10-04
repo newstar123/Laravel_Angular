@@ -1,0 +1,32 @@
+
+<div class="modal fade bs-example-modal-lg universityAdd" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="false">
+    <div class="modal-dialog" style="width: 60%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add University</h4>
+            </div>
+            <form class="form" name="addUniversityForm" ng-submit="addUniversityFn()">
+                <div class="panel-body">
+                    <div class="form-group clearfix pull-in">
+                        <div class="col-sm-6">
+                            <label>
+                                Name
+                                <span class="error" ng-show="addUniversityForm.name.$error.required" style="color: RED">*</span>
+                                <span class="valid" ng-show="addUniversityForm.name.$valid" style="color: #31B404">*</span>
+                            </label>
+                            <input type="text" name="name" class="form-control" ng-model="university.name" required />
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Description</label>
+                            <textarea name="description" class="form-control" ng-model="university.description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="addUniversityForm.$invalid" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

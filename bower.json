@@ -1,0 +1,26 @@
+{
+  "name": "Rejeb",
+  "description": "Demo Laravel + Angularjs",
+  "main": "",
+  "authors": [
+    "Gaurang Ghinaiya <gaurangghinaiya@yahoo.in>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "angular-block-ui": "~0.2.2",
+    "angular-xeditable": "~0.1.9",
+    "angular-bootstrap": "~0.14.3",
+    "moment": "~2.10.6"
+  }
+}

@@ -1,0 +1,37 @@
+<!--header start-->
+<header class="header fixed-top clearfix">
+    <!--logo start-->
+    <div class="brand">
+
+        <a href class="logo">
+            Demo
+        </a>
+        <div class="sidebar-toggle-box" small-nav>
+            <div class="fa fa-bars"></div>
+        </div>
+    </div>
+    <!--logo end-->
+
+    <div class="nav notify-row" id="top_menu">
+        <!--  notification start -->
+        <!--  notification end -->
+    </div>
+    <div class="top-nav clearfix">
+        <h3 style="margin: 0px;text-align: center">Demo of laravel and angularjs</h3>
+        <ul class="nav pull-right top-menu">
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href>
+                    <span class="username">dsfdsaf{{me.first_name}} {{me.last_name}}</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu extended logout">
+                    <li><a href ui-sref="app.profile"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                    <li><a href ng-click="doLogoutFn()"><i class="fa fa-key"></i>Logout</a></li>
+                </ul>
+            </li>
+            <!-- user login dropdown end -->
+        </ul>
+        <!--search & user info end-->
+    </div>
+</header>
+<!--header end-->

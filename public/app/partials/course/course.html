@@ -1,0 +1,52 @@
+<div class="row form-group">
+    <div class="col-md-12 text-right">
+        <button class="btn btn-info" type="button" ui-sref="app.course.add">Add Course</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Courses
+                <input type="text" ng-model="search" class="form-control" placeholder="search">
+            </header>
+            <div class="panel-body">
+                <table class="table table-hover table-bordered" ng-show="courses.length">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Course</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat = "u in courses | filter:search">
+                            <td>{{$index + 1}}</td>
+                            <td>{{u.name}}</td>
+                            <td>{{u.description}}</td>
+                            <td>{{u.university.name}}</td>
+                            <td>
+                                <button class="btn btn-xs btn-danger" ng-confirm-click confirmed-click="deleteCourseFn(u.id)" type="button"  uib-tooltip="Delete Course"><i class="fa fa-trash-o"></i></button>
+                                <button class="btn btn-xs btn-primary" type="button" ui-sref="app.course.edit({id:u.id})" uib-tooltip="Edit Course"><i class="fa fa-edit"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="alert alert-danger" ng-show="courses.length == 0">
+                    <div class="notification-info">
+                        <ul class="clearfix notification-meta">
+                            <li class="pull-left notification-sender">
+                                <h3><span><a href>No courses Found</a></span> please add more </h3>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div ui-view></div>

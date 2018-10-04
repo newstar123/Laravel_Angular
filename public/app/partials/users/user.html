@@ -1,0 +1,87 @@
+<div class="row form-group">
+    <div class="col-md-12 text-right">
+        <button class="btn btn-info" type="button" ui-sref="app.user.add">Add User</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Users
+            </header>
+            <div class="panel-body">
+                <table class="table table-hover table-bordered" ng-show="users.length">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>User Name</th>
+                            <th>Email</th>
+                            <th>Active</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat = "u in users">
+                            <td>{{$index + 1}}</td>
+                            <td class="custom">
+                                <span editable-text="u.name" onbeforesave="updateUserFn($data,'name',u.id)">
+                                    {{u.name}}
+                                </span>
+                            </td>
+                            <td class="custom">
+                                <span editable-text="u.username" onbeforesave="updateUserFn($data,'username',u.id)">
+                                    {{u.username}}
+                                </span>
+                            </td>
+                            <td class="custom">
+                                <span editable-email="u.email" onbeforesave="updateUserFn($data,'email',u.id)">
+                                    {{u.email}}
+                                </span>
+                            </td>
+                            <td>
+                                <a href="" class="active" ng-show="u.active" ng-confirm-click="Are you sure want to deactivate user" confirmed-click="updateActiveFn(u.active, u.id)">
+                                    <i class="fa fa-check text-success text-active"></i>
+                                </a>
+                                <a href="" ng-show="!u.active" ng-confirm-click="Are you sure want to activate user" confirmed-click="updateActiveFn(u.active, u.id)" class="">
+                                    <i class="fa fa-times text-danger text"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <button class="btn btn-xs btn-danger" ng-confirm-click confirmed-click="deleteUserFn(u.id)" type="button"  uib-tooltip="Delete User"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="text-right m-t-lg m-b-lg" ng-show="users.length">
+                    <!--<div class="col-md-6 text-right" >-->
+                    <uib-pagination boundary-links="true" style="margin: 0 0 5px 0;"
+                                total-items="totalCount"
+                                items-per-page="limit"
+                                ng-model="currentPage"
+                                class="pagination-sm"
+                                previous-text="&lsaquo;"
+                                ng-click="getPaginate()"
+                                max-size="maxSize"
+                                next-text="&rsaquo;"
+                                first-text="&laquo;"
+                                last-text="&raquo;">
+                    </uib-pagination>
+                </div>
+                <div class="alert alert-danger" ng-show="users.length == 0">
+                    <div class="notification-info">
+                        <ul class="clearfix notification-meta">
+                            <li class="pull-left notification-sender">
+                                <h3><span><a href>No Users Found</a></span> please add more </h3>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div ui-view></div>

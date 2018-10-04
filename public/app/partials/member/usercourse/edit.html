@@ -1,0 +1,39 @@
+
+<div class="modal fade bs-example-modal-lg usercourseEdit" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="false">
+    <div class="modal-dialog" style="width: 60%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add User Courses</h4>
+            </div>
+            <form class="form" name="editUserCourseForm" ng-submit="updateUserCourseFn()">
+                <div class="panel-body">
+                    <div class="form-group clearfix pull-in">
+                        <div class="col-sm-6">
+                            <label>
+                                University
+                                <span class="error" ng-show="editUserCourseForm.university_id.$error.required" style="color: RED">*</span>
+                                <span class="valid" ng-show="editUserCourseForm.university_id.$valid" style="color: #31B404">*</span>
+                            </label>
+                            <select ng-options="uni.id as uni.name for uni in universities"
+                                    ng-change="getCoursesFn(usercourse.university_id)"
+                                    ng-model="usercourse.university_id" name="university_id" class="form-control" required></select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>
+                                Course
+                                <span class="error" ng-show="editUserCourseForm.course_id.$error.required" style="color: RED">*</span>
+                                <span class="valid" ng-show="editUserCourseForm.course_id.$valid" style="color: #31B404">*</span>
+                            </label>
+                            <select ng-options="cr.id as cr.name for cr in courses"
+                                    ng-model="usercourse.course_id" name="course_id" class="form-control" required></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="editUserCourseForm.$invalid" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

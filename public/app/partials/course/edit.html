@@ -1,0 +1,41 @@
+
+<div class="modal fade bs-example-modal-lg courseEdit" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="false">
+    <div class="modal-dialog" style="width: 60%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Course</h4>
+            </div>
+            <form class="form" name="editCourseForm" ng-submit="updateCourseFn()">
+                <div class="panel-body">
+                    <div class="form-group clearfix pull-in">
+                        <div class="col-sm-4">
+                            <label>
+                                University
+                                <span class="error" ng-show="editCourseForm.university_id.$error.required" style="color: RED">*</span>
+                                <span class="valid" ng-show="editCourseForm.university_id.$valid" style="color: #31B404">*</span>
+                            </label>
+                            <select ng-options="uni.id as uni.name for uni in universities"
+                                    ng-model="course.university_id" name="category_id" class="form-control" required></select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>
+                                Name
+                                <span class="error" ng-show="editCourseForm.name.$error.required" style="color: RED">*</span>
+                                <span class="valid" ng-show="editCourseForm.name.$valid" style="color: #31B404">*</span>
+                            </label>
+                            <input type="text" name="name" class="form-control" ng-model="course.name" required />
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Description</label>
+                            <textarea name="description" class="form-control" ng-model="course.description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="editCourseForm.$invalid" class="btn btn-primary">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

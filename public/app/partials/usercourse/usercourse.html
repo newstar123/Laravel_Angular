@@ -1,0 +1,50 @@
+<div class="row form-group">
+    <div class="col-md-12 text-right">
+        <button class="btn btn-info" type="button" ui-sref="app.usercourse.add">Add Course</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                User Courses
+            </header>
+            <div class="panel-body">
+                <table class="table table-hover table-bordered" ng-show="usercourses.length">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>User</th>
+                            <th>University</th>
+                            <th>Course</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat = "u in usercourses">
+                            <td>{{$index + 1}}</td>
+                            <td>{{u.user.name}}</td>
+                            <td>{{u.course.name}}</td>
+                            <td>{{u.university.name}}</td>
+                            <td>
+                                <button class="btn btn-xs btn-primary" type="button" ui-sref="app.usercourse.edit({id:u.id})" uib-tooltip="Edit Course"><i class="fa fa-edit"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="alert alert-danger" ng-show="usercourses.length == 0">
+                    <div class="notification-info">
+                        <ul class="clearfix notification-meta">
+                            <li class="pull-left notification-sender">
+                                <h3><span><a href>No user course Found</a></span> please add more </h3>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div ui-view></div>

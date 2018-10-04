@@ -1,0 +1,48 @@
+<!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion" show-menu>
+                <li>
+                    <a ui-sref-active="active" href ui-sref="app.dashboard">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li ng-if="me.user_type == 1">
+                    <a ui-sref-active="active" href ui-sref="app.user">
+                        <i class="fa fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li ng-if="me.user_type == 1">
+                    <a ui-sref-active="active" href ui-sref="app.university">
+                        <i class="fa fa-university"></i>
+                        <span>University</span>
+                    </a>
+                </li>
+                <li ng-if="me.user_type == 1">
+                    <a ui-sref-active="active" href ui-sref="app.course">
+                        <i class="fa fa-university"></i>
+                        <span>Course</span>
+                    </a>
+                </li>
+                <li ng-if="me.user_type == 1">
+                    <a ui-sref-active="active" href ui-sref="app.usercourse">
+                        <i class="fa fa-university"></i>
+                        <span>User Course</span>
+                    </a>
+                </li>
+                <li ng-if="me.user_type == 2">
+                    <a ui-sref-active="active" href ui-sref="app.usercourse">
+                        <i class="fa fa-university"></i>
+                        <span>User Course</span>
+                    </a>
+                </li>
+            </ul>            
+        </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<!--sidebar end-->

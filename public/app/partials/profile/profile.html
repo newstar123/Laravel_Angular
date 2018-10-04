@@ -1,0 +1,177 @@
+<style>
+    hr{
+        margin: 7px 0px;
+    }
+    .list-group{
+        margin-bottom: 10px;
+        padding: 0px 15px;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <!--<header class="panel-heading tab-bg-dark-navy-blue">-->
+            <ul class="nav nav-tabs nav-justified ">
+                <li class="active">
+                    <a data-toggle="tab" href data-target="#pofile">
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href data-target="#change-password">
+                        Change Password
+                    </a>
+                </li>
+            </ul>
+            <!--</header>-->
+            <div class="panel-body">
+                <div class="tab-content tasi-tab">
+                    <div id="pofile" class="tab-pane active">
+                        <div class="row">
+                            <form class="form" name="EditProfileForm" ng-submit="updateProfileFn()">
+
+                                <!--personal detail section-->
+                                <div class="list-group">
+                                    <div class="list-group-item">
+                                        Personal Detail
+                                        <hr>
+                                        <div class="form-group clearfix">
+                                            <div class="col-sm-4">
+                                                <label>
+                                                    Name
+                                                    <span class="error" ng-show="EditProfileForm.name.$error.required" style="color:RED">*</span>
+                                                    <span class="valid" ng-show="EditProfileForm.name.$valid" style="color:#31B404">*</span>
+                                                </label>
+                                                <input type="text" name="name" class="form-control" ng-model="profile.name" required>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label>
+                                                    Email
+                                                    <span class="error" ng-show="EditProfileForm.email.$error.required" style="color:RED">*</span>
+                                                    <span class="valid" ng-show="EditProfileForm.email.$valid" style="color:#31B404">*</span>
+                                                </label>
+                                                <input type="email" name="email" class="form-control" ng-model="profile.email" required>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label>
+                                                    User Name
+                                                    <span class="error" ng-show="EditProfileForm.username.$error.required" style="color:RED">*</span>
+                                                    <span class="valid" ng-show="EditProfileForm.username.$valid" style="color:#31B404">*</span>
+                                                </label>
+                                                <input type="text" name="username" class="form-control" ng-model="profile.username" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group clearfix">
+                                    <div class="col-md-12">
+                                        <button type="submit" ng-disabled="EditProfileForm.$invalid" class="btn btn-primary pull-right">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="change-password" class="tab-pane ">
+                        <div class="row">
+                            <form name="updatePassword" ng-submit="updatePasswordFn()">
+                                <div class="form-group clearfix">
+                                    <div class="col-md-4">
+                                        <label>
+                                            Current Password
+                                            <span class="error" ng-show="updatePassword.current.$error.required" style="color:RED">*</span>
+                                            <span class="valid" ng-show="updatePassword.current.$valid" style="color:#31B404">*</span>
+                                        </label>
+                                        <input type="password" name="current" class="form-control" ng-model="passowrd.current" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>
+                                            New Password
+                                            <span class="error" ng-show="updatePassword.password.$error.required" style="color:RED">*</span>
+                                            <span class="valid" ng-show="updatePassword.password.$valid" style="color:#31B404">*</span>
+                                        </label>
+                                        <input type="password" name="password" class="form-control" ng-model="passowrd.password" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>
+                                            Current Password
+                                            <span class="error" ng-show="updatePassword.confirm.$error.required" style="color:RED">*</span>
+                                            <span class="valid" ng-show="updatePassword.confirm.$valid" style="color:#31B404">*</span>
+                                        </label>
+                                        <input type="password" name="confirm" class="form-control" ng-model="confirmpassword" required>
+                                        <span class="error" ng-show="confirmpassword && confirmpassword != passowrd.password" style="color:RED">Password Mismatch</span>
+                                    </div>
+                                </div>
+                                <div class="form-group clearfix">
+                                    <div class="col-md-12 text-right">
+                                        <button type="submit" ng-disabled="passowrd.password != confirmpassword || updatePassword.$invalid" class="btn btn-success">Update password</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+<div ui-view></div>
+
+<style>
+    hr{
+        margin: 10px 0px;
+    }
+</style>
+<div class="modal fade managerTeam" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="false">
+    <div class="modal-dialog" role="document" style="width: 80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Team</h4>
+            </div>
+            <form class="form" name="AddTeamForm" ng-submit="addTeamFn()">
+                <div class="panel-body">
+
+                    <div class="list-group col-md-12">
+                        <div class="list-group-item">
+                            Team Member Detail
+                            <hr/>
+                            <div class="form-group clearfix pull-in">
+                                <table class="table table-bordered" ng-show="teams.length">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <tr ng-repeat="mb in managerteams">
+                                        <td>{{$index + 1}}</td>
+                                        <td>
+                                            <input type="text" class="form-control" ng-model="mb.name" required>
+                                        </td>
+                                        <td>
+                                            <button type="button" ng-click="addMoreTeamFn()" class="btn btn-success btn-xs" tooltip="Add Team">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                            <button type="button" ng-click="removeTeamFn($index)" class="btn btn-danger btn-xs" tooltip="Remove Team">
+                                                <i class="fa fa-trash-o"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="AddTeamForm.$invalid" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

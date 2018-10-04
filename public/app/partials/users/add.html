@@ -1,0 +1,63 @@
+
+<div class="modal fade bs-example-modal-lg userAdd" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="false">
+    <div class="modal-dialog" style="width: 60%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add User</h4>
+            </div>
+            <form class="form" name="addUserForm" ng-submit="addUserFn()">
+                <div class="panel-body">
+                    <div class="form-group clearfix pull-in">
+                        <div class="col-sm-4">
+                            <label>
+                                Name
+                                <span class="error" ng-show="addUserForm.name.$error.required" style="color: RED">*</span>
+                                <span class="valid" ng-show="addUserForm.name.$valid" style="color: #31B404">*</span>
+                            </label>
+                            <input type="text" name="name" class="form-control" ng-model="user.name" required />
+                        </div>
+                        <div class="col-sm-4">
+                            <label>
+                                Username
+                                <span class="error" ng-show="addUserForm.username.$error.required" style="color: RED">*</span>
+                                <span class="valid" ng-show="addUserForm.username.$valid" style="color: #31B404">*</span>
+                            </label>
+                            <input type="text" name="username" class="form-control" ng-model="user.username" required />
+                        </div>
+                        <div class="col-sm-4">
+                            <label>
+                                Email
+                                <span class="error" ng-show="addUserForm.email.$error.required" style="color: RED">*</span>
+                                <span class="valid" ng-show="addUserForm.email.$valid" style="color: #31B404">*</span>
+                            </label>
+                            <input type="email" name="email" class="form-control" ng-model="user.email" required />
+                        </div>
+                    </div>
+                    <div class="form-group clearfix pull-in">
+                        <div class="col-sm-4">
+                            <label>
+                                Password
+                                <span class="error" ng-show="addUserForm.password.$error.required" style="color: RED">*</span>
+                                <span class="valid" ng-show="addUserForm.password.$valid" style="color: #31B404">*</span>
+                            </label>
+                            <input type="password" name="password" class="form-control" ng-model="user.password" required />
+                        </div>
+                        <div class="col-sm-4">
+                            <label>
+                                Confirm Password
+                                <span class="error" ng-show="addUserForm.cpassword.$error.required" style="color: RED">*</span>
+                                <span class="valid" ng-show="addUserForm.cpassword.$valid" style="color: #31B404">*</span>
+                            </label>
+                            <input type="password" name="cpassword" class="form-control" ng-model="cpassword" required />
+                            <span class="error" ng-show="user.password && cpassword && user.password != cpassword" style="color: RED">Password mismatch</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="addUserForm.$invalid || user.password != cpassword" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
